@@ -106,6 +106,7 @@
         /* Inner nav ------------------------------------------- */
         .inner-nav {
             margin-top: 20px;
+            margin-bottom: 20px;
         }
         
         .inner-nav-link {
@@ -118,7 +119,7 @@
         
         /* Content ---------------------------------------------- */
         .content-container {
-            background-color: rgba(44, 0, 0, 0.363);
+            /* background-color: rgba(44, 0, 0, 0.363); */
             height: 100vh;
             
             width: 80%;
@@ -130,6 +131,10 @@
         
         .router-view {
             background-color: white;
+        }
+
+        .filter-button {
+            
         }
     </style>
 </head>
@@ -214,9 +219,9 @@
             <div class="input-field">
                 <input type="text" placeholder="Search Employee...">
             </div>
-            <div class="input-field">
-                <input type="text" placeholder="Filter">
-            </div>
+            <button class="filter-button">Filter</button>
+
+
         </div>
     </div>
 </body>
