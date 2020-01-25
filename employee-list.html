@@ -137,16 +137,32 @@
          flex-direction: row;
       }
 
-      .btn-filter-button {
+      .search-field {
          background-color: #F6F6F6;
+         border: none;
+         padding: 15.5px 8px 9px 0px;
+         color: #C8C8C8; 
+      }
+
+      .btn-filter-button  {
+         background-color: #F6F6F6;
+         border: none;
+         padding: 15.5px 8px 9px 8px;
+         color: #C8C8C8; 
       }
 
       .btn-add-employee {
          background-color: #82EFCA;
+         border: none;
+         padding: 15.5px 8px 9px 8px;
+         color: white;
       }
 
       .btn-export {
          background-color: #77BBFE;
+         border: none;
+         padding: 15.5px 8px 9px 8px;
+         color: white;
       }
 
       
@@ -234,15 +250,15 @@
 
       <div class="router-view">
          <div class="input-field">
-            <input type="text" placeholder="Search Employee...">
+            <input class="search-field" type="text" placeholder="Search Employee...">
+            <img src="./images/search.svg"> 
          </div>
          <div id="filter-button">
             <button class="btn-filter-button">Filters</button>        
             <button class="btn-add-employee">Add New Employee</button>    
-            <button class="btn-export">Export</button> 
-         
+            <button class="btn-export">Export</button>          
+         </div>
       </div>
-   </div>
 </body>
 
 </html>
