@@ -137,6 +137,20 @@
          flex-direction: row;
       }
 
+      .btn-filter-button {
+         background-color: #F6F6F6;
+      }
+
+      .btn-add-employee {
+         background-color: #82EFCA;
+      }
+
+      .btn-export {
+         background-color: #77BBFE;
+      }
+
+      
+
    </style>
 
 </head>
@@ -222,9 +236,11 @@
          <div class="input-field">
             <input type="text" placeholder="Search Employee...">
          </div>
-         <div class="input-field">
-            <input type="text" placeholder="Filter">
-         </div>
+         <div id="filter-button">
+            <button class="btn-filter-button">Filters</button>        
+            <button class="btn-add-employee">Add New Employee</button>    
+            <button class="btn-export">Export</button> 
+         
       </div>
    </div>
 </body>
