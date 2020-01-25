@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        * {
+            font-family: 'Product Sans Regular', sans-serif;
+        }
+        
+        body {
+            margin: 0px;
+            padding: 0px;
+            /* height: 100vh; */
+            /* background-color: rosybrown; */
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        
+        .topbar {
+            background-color: #FFFFFF;
+            position: fixed;
+            width: 100%;
+            height: 81px;
+            border-bottom: 1px solid #EEEEEE;
+            display: flex;
+            z-index: 2;
+        }
+        
+        .side-nav {
+            position: fixed;
+            background-color: #FFFFFF;
+            width: 87px;
+            height: 100vh;
+            border-right: 1px solid #EEEEEE;
+            z-index: 1;
+        }
+        
+        /* topbar ----------------------------------------------- */
+        .logo {
+            margin-left: 26px;
+        }
+        
+        .right {
+            display: flex;
+            /* background-color: red; */
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 26px;
+        }
+        
+        .notification {
+            display: flex;
+            background: none;
+            justify-content: center;
+            align-items: center;
+            /* background-color: red; */
+            text-decoration: none;
+            position: relative;
+            margin-right: 20px;
+        }
+        
+        .notification-icon {
+            height: 25px;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            background-color: #FB6464;
+            border: 2px solid white;
+            border-radius: 999px;
+            box-sizing: border-box;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            font-weight: bold;
+            bottom: 3px;
+            left: 9px;
+        }      
+        
+        /* Sidebar --------------------------------------------- */
+        .navigation {
+            /* background-color: red; */
+            margin-top: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .navigation-link {
+            margin-bottom: 24px;
+        }
+        
+        .active {
+            background-color: #82EFCA;
+            fill: #82EFCA;
+        }
+        
+        /* Inner nav ------------------------------------------- */
+        .inner-nav {
+            margin-top: 20px;
+        }
+        
+        .inner-nav-link {
+            margin-right: 47px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #DFDFDF;
+            font-weight: bold;
+        }
+        
+        /* Content ---------------------------------------------- */
+        .content-container {
+            background-color: rgba(44, 0, 0, 0.363);
+            height: 100vh;
+            
+            width: 80%;
+            min-width: 1000px;
+            align-self: center;
+            margin-top: 100px;
+            margin-left: 87px;
+        }
+        
+        .router-view {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <img src="./images/Logo.svg" alt="" class="logo">
+        
+        <div class="right">
+            
+            <a class="notification">
+                <img src="./images/notification-icon.svg" alt="" class="notification-icon">
+                <p class="notification-badge">1</p>
+            </a>
+            
+            <a class="user-button">
+                <img src="./images/avatar.svg" alt="" class="user">
+            </a>
+        </div>
+    </div>
+    
+    <div class="side-nav">
+        <div class="navigation">
+            <a href="" class="navigation-link">
+                <svg class="navigation-icon" xmlns="http://www.w3.org/2000/svg" width="27.539" height="27.539" viewBox="0 0 27.539 27.539">
+                    <g transform="translate(0.301 0.309)">
+                        <path
+                        d="M33.42,12.909A2.411,2.411,0,0,0,35.1,12.23l2.375,1.187a2.42,2.42,0,1,0,4.585-.744l3.228-3.228a2.42,2.42,0,0,0,3.353-2.908l2.8-2.1a2.417,2.417,0,1,0-.969-1.29l-2.8,2.1A2.42,2.42,0,0,0,44.146,8.3l-3.228,3.228a2.415,2.415,0,0,0-2.722.442l-2.375-1.187a2.42,2.42,0,1,0-2.4,2.122Zm19.363-11.3a.807.807,0,1,1-.807.807A.808.808,0,0,1,52.784,1.614ZM46.329,6.455a.807.807,0,1,1-.807.807A.808.808,0,0,1,46.329,6.455Zm-6.454,6.454a.807.807,0,1,1-.807.807A.808.808,0,0,1,39.875,12.909ZM33.42,9.682a.807.807,0,1,1-.807.807A.808.808,0,0,1,33.42,9.682Zm0,0"
+                        transform="translate(-29.633 -0.309)" fill="#d0d7e5" />
+                        <path
+                        d="M26.732,167.857h-.861V150.807a.807.807,0,0,0-.807-.807H21.838a.807.807,0,0,0-.807.807v17.051H19.417v-12.21a.807.807,0,0,0-.807-.807H15.383a.807.807,0,0,0-.807.807v12.21H12.963V162.1a.807.807,0,0,0-.807-.807H8.929a.807.807,0,0,0-.807.807v5.755H6.508v-8.983a.807.807,0,0,0-.807-.807H2.474a.807.807,0,0,0-.807.807v8.983H.807a.807.807,0,0,0,0,1.614H26.732a.807.807,0,0,0,0-1.614Zm-4.088-16.244h1.614v16.244H22.645Zm-6.454,4.841H17.8v11.4H16.19Zm-6.454,6.454h1.614v4.948H9.736Zm-6.454-3.227H4.895v8.176H3.281Zm0,0"
+                        transform="translate(-0.301 -142.241)" fill="#d0d7e5" />
+                    </g>
+                </svg>
+            </a>
+            <a href="" class="navigation-link">
+                <svg class="navigation-icon" xmlns="http://www.w3.org/2000/svg" width="27.207" height="27.206" viewBox="0 0 27.207 27.206">
+                    <g transform="translate(0 0)">
+                        <g transform="translate(9.993)">
+                            <g transform="translate(0 0)">
+                                <circle cx="3.5" cy="3.5" r="3.5" transform="translate(0.007)" fill="#d0d7e5" />
+                            </g>
+                        </g>
+                        <g transform="translate(8.502 8.502)">
+                            <path
+                            d="M170.2,167.548l-.772-6.013a1.694,1.694,0,0,0-1.69-1.53H166.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.93a1.69,1.69,0,0,0-1.69,1.508l-.774,6.036a.852.852,0,0,0,.843.957h.918l.711,8.672a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.709-8.657h.917a.848.848,0,0,0,.638-.289A.837.837,0,0,0,170.2,167.548Z"
+                            transform="translate(-160 -160.005)" fill="#d0d7e5" />
+                        </g>
+                        <g transform="translate(19.077)">
+                            <g transform="translate(0 0)">
+                                <circle cx="3.5" cy="3.5" r="3.5" transform="translate(-0.077)" fill="#d0d7e5" />
+                            </g>
+                        </g>
+                        <g transform="translate(1.7 0)">
+                            <g transform="translate(0 0)">
+                                <path d="M35.4,0a3.4,3.4,0,1,0,3.4,3.4A3.4,3.4,0,0,0,35.4,0Z"
+                                transform="translate(-31.999 -0.005)" fill="#d0d7e5" />
+                            </g>
+                        </g>
+                        <g transform="translate(18.92 8.502)">
+                            <path
+                            d="M364.342,167.548l-.772-6.011a1.693,1.693,0,0,0-1.69-1.532h-.932a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.932a1.62,1.62,0,0,0-.3.056,3.311,3.311,0,0,1,.442,1.279l.77,5.992a2.544,2.544,0,0,1-.622,2.017,2.465,2.465,0,0,1-.843.6l.565,5.531a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.707-6.956h.917a.848.848,0,0,0,.638-.289A.838.838,0,0,0,364.342,167.548Z"
+                            transform="translate(-356.063 -160.005)" fill="#d0d7e5" />
+                        </g>
+                        <g transform="translate(0 8.502)">
+                            <path
+                            d="M7.437,169.34a2.547,2.547,0,0,1-.616-2L7.6,161.3a3.144,3.144,0,0,1,.423-1.238,1.6,1.6,0,0,0-.286-.054H6.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.855.855,0,0,0-.6-.248H2.47a1.69,1.69,0,0,0-1.69,1.508L.006,167.55a.852.852,0,0,0,.843.957h.918l.711,6.972a1.694,1.694,0,0,0,1.692,1.53H6.032a1.7,1.7,0,0,0,1.694-1.546l.565-5.518A2.55,2.55,0,0,1,7.437,169.34Z"
+                            transform="translate(0.001 -160.005)" fill="#d0d7e5" />
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </div>
+    
+    <div class="content-container">
+        <div class="inner-nav">
+            <a href="" class="inner-nav-link">Employeee List</a>
+            <a href="" class="inner-nav-link">Employee Logs</a>
+        </div>
+        
+        <div class="router-view">
+            <div class="input-field">
+                <input type="text" placeholder="Search Employee...">
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Filter">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
