@@ -110,7 +110,14 @@
                
       }
 
-      .inner-nav-link {
+      .inner-nav-list-link {
+         margin-right: 47px;
+         text-decoration: none;
+         font-size: 20px;
+         color: #82EFCA;
+         font-weight: bold;
+      }
+      .inner-nav-logs-link {
          margin-right: 47px;
          text-decoration: none;
          font-size: 20px;
@@ -140,14 +147,14 @@
       .search-field {
          background-color: #F6F6F6;
          border: none;
-         padding: 15.5px 8px 9px 0px;
+         padding  : 15.5px 8px 9px 8px;
          color: #C8C8C8; 
       }
 
       .btn-filter-button  {
          background-color: #F6F6F6;
          border: none;
-         padding: 15.5px 8px 9px 8px;
+         padding: 11px 15px;
          color: #C8C8C8; 
       }
 
@@ -158,14 +165,50 @@
          color: white;
       }
 
-      .btn-export {
+         .btn-export {
          background-color: #77BBFE;
          border: none;
          padding: 15.5px 8px 9px 8px;
          color: white;
       }
 
+      .employee-log-table {
+               background-color: #FFFFFF;
+               width: 100%;
+               text-align: left;
+               border-collapse: collapse;
+      }
       
+      thead {
+         color: white;
+         padding: 15px 50px;
+      }
+
+      th {
+         padding: 14px 20px;
+         background-color: #4B5B75;;
+         border: 1px solid white;
+      }
+
+      thead {
+         color: white;
+         padding: 15px 50px;
+      }
+
+      tbody {
+         color: #B7B7B7;
+      }
+      
+      td {
+         padding: 14px 20px;
+         color: #B7B7B7;
+      }
+
+      tr:nth-child(even) {
+         background-color: #f2f2f2;
+      }
+
+    
 
    </style>
 
@@ -244,8 +287,8 @@
 
    <div class="content-container">
       <div class="inner-nav">
-         <a href="" class="inner-nav-link">Employeee List</a>
-         <a href="" class="inner-nav-link">Employee Logs</a>
+         <a href="" class="inner-nav-list-link">Employeee List</a>
+         <a href="" class="inner-nav-logs-link">Employee Logs</a>
       </div>
 
       <div class="router-view">
@@ -257,8 +300,153 @@
             <button class="btn-filter-button">Filters</button>        
             <button class="btn-add-employee">Add New Employee</button>    
             <button class="btn-export">Export</button>          
-         </div>
+         </div>         
       </div>
+
+      <div>
+         <table class="employee-log-table">
+            <thead class="table-head">
+               <tr> 
+                  <th>Name</th> 
+                  <th>Employee ID</th>
+                  <th>Email</th>               
+                  <th>Department</th>
+                  <th>Job Title</th>
+                  <th>Employment Status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Saludes, Nathan</td>
+                  <td>201502034</td>
+                  <td>201502034@iacademy.edu.ph</td>
+                  <td>Human Resources</td>
+                  <td>HR Manager</td>
+                  <td>Full Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Brian</td>
+                  <td>201601128</td>
+                  <td>201601128@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Fernandez, Ernest</td>
+                  <td>201701058</td>
+                  <td>201701058@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin Assistant</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Ivan</td>
+                  <td>201601129</td>
+                  <td>201601129@iacademy.edu.ph</td>
+                  <td>Faculty</td>
+                  <td>Professor</td>
+                  <td>Full-Time</td>
+               </tr>
+               <tr>
+                  <td>Saludes, Nathan</td>
+                  <td>201502034</td>
+                  <td>201502034@iacademy.edu.ph</td>
+                  <td>Human Resources</td>
+                  <td>HR Manager</td>
+                  <td>Full Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Brian</td>
+                  <td>201601128</td>
+                  <td>201601128@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Fernandez, Ernest</td>
+                  <td>201701058</td>
+                  <td>201701058@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin Assistant</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Ivan</td>
+                  <td>201601129</td>
+                  <td>201601129@iacademy.edu.ph</td>
+                  <td>Faculty</td>
+                  <td>Professor</td>
+                  <td>Full-Time</td>
+               </tr><tr>
+                  <td>Saludes, Nathan</td>
+                  <td>201502034</td>
+                  <td>201502034@iacademy.edu.ph</td>
+                  <td>Human Resources</td>
+                  <td>HR Manager</td>
+                  <td>Full Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Brian</td>
+                  <td>201601128</td>
+                  <td>201601128@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Fernandez, Ernest</td>
+                  <td>201701058</td>
+                  <td>201701058@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin Assistant</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Ivan</td>
+                  <td>201601129</td>
+                  <td>201601129@iacademy.edu.ph</td>
+                  <td>Faculty</td>
+                  <td>Professor</td>
+                  <td>Full-Time</td>
+               </tr>
+               <tr>
+                  <td>Saludes, Nathan</td>
+                  <td>201502034</td>
+                  <td>201502034@iacademy.edu.ph</td>
+                  <td>Human Resources</td>
+                  <td>HR Manager</td>
+                  <td>Full Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Brian</td>
+                  <td>201601128</td>
+                  <td>201601128@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Fernandez, Ernest</td>
+                  <td>201701058</td>
+                  <td>201701058@iacademy.edu.ph</td>
+                  <td>Information Tech</td>
+                  <td>IT Admin Assistant</td>
+                  <td>Part-Time</td>
+               </tr>
+               <tr>
+                  <td>Dineros, Ivan</td>
+                  <td>201601129</td>
+                  <td>201601129@iacademy.edu.ph</td>
+                  <td>Faculty</td>
+                  <td>Professor</td>
+                  <td>Full-Time</td>
+               </tr>
+               
+            </tbody>
+         </table>
+      </div>   
 </body>
 
 </html>
