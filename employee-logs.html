@@ -7,6 +7,8 @@
     <title>Document</title>
     
     <style>
+        @import url("./fonts/product-sans.css");
+
         * {
             font-family: 'Product Sans Regular', sans-serif;
         }
@@ -118,8 +120,12 @@
             font-weight: bold;
         }
 
+        .inner-active {
+            color: #82EFCA;
+        }
+
         .inner-nav-link:hover {
-            color: #b8b8b8;
+            color: #82EFCA;
         }
         
         /* Content ---------------------------------------------- */
@@ -140,7 +146,7 @@
         }
 
         .input-field {
-            padding: 10px;
+            padding: 0px 10px;
             background-color: rgb(240, 240, 240);
             width: max-content;
             border-radius: 5px;
@@ -150,9 +156,18 @@
         .input-field input {
             border: none;
             background-color: transparent;
-            font-size: 13px;
+            font-size: 16px;
             font-family: 'Product Sans Regular', sans-serif;
-            /* font-weight: bold; */
+            padding: 10px 5px;
+            width: 300px;
+        }
+
+        .input-field input::placeholder {
+            color: rgb(180, 180, 180);
+        }
+
+        .input-field input:focus {
+            outline: none;
         }
         
         .router-view {
@@ -173,13 +188,43 @@
 
         .filter-button span {
             margin: 0px 10px;
+            font-size: 16px;
+        }
+
+        .incomplete-logs-button {
+            background-color: #4B5B75;
+            border: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            padding: 0px 15px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .question-icon {
+            margin-right: 8px;
+        }
+
+        .export-button {
+            background-color: #77BBFE;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0px 20px;
+            font-weight: bold;
         }
 
         .employee-log-table {
-            /* background-color: #FB6464; */
             width: 100%;
             text-align: left;
             border-collapse: collapse;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgb(245, 245, 245);
         }
 
         th {
@@ -193,8 +238,28 @@
             vertical-align: middle;     
         }
 
-        .emotion-log {
+        .log-time {
             display: flex;
+            align-items: center;
+        }
+
+        .time {
+            margin-right: 10px;
+        }
+
+        .emotion-text {
+            font-size: 12px;
+            color: rgb(153, 153, 153);
+            margin-left: 5px;
+        }
+
+        .action-button {
+            background-color: transparent;
+            border: none;
+        }
+
+        .action-button:hover {
+            cursor: pointer;
         }
 
     </style>
@@ -273,7 +338,7 @@
     <div class="content-container">
         <div class="inner-nav">
             <a href="" class="inner-nav-link">Employeee List</a>
-            <a href="" class="inner-nav-link">Employee Logs</a>
+            <a href="" class="inner-nav-link inner-active">Employee Logs</a>
         </div>
         
         <div class="router-view">
@@ -294,43 +359,121 @@
                 <!-- Date Range component -->
                 <div class="input-field">
                     <img src="./images/calendar.svg" alt="">
-                    <input id="Toda" type="text" name="" id="" value="Today">
+                    <input id="Toda" type="text" name="" id="" value="Today" placeholder="Select date range...">
                 </div>
+
+                <!-- Incomplete Logs toggle button -->
+                <button class="incomplete-logs-button">
+                    <img src="./images/question.svg" class="question-icon">
+                    Show Incomplete Logs
+                </button>
+
+                <!-- Export Button -->
+                <button class="export-button">
+                    Export
+                </button>
             </div>
 
             <table class="employee-log-table">
                 <thead class="table-head">
-                    <th>Lastname</th>
-                    <th>Firstname</th>
+                    <th>Name</th>
                     <th>Employee ID</th>
                     <th>Date</th>
                     <th>Time-in</th>
-                    <th>Emotion-in</th>
                     <th>Time-out</th>
-                    <th>Emotion-out</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Saludes</td>
-                        <td>Nathaniel</td>
+                        <td>Saludes, Nathaniel</td>
                         <td>XXXX-XXXXX</td>
                         <td>January 23, 2020</td>
-                        <td>7:30 A.M.</td>
                         <td>
-                            <span class="emotion-log">
-                                <img src="./images/log-emotion.png" alt=""> <span>Amazing</span>
-                            </span>
-                        </td>
-                        <td>4:30 P.M.</td>
-                        <td>
-                            <span class="emotion-log">
-                                <img src="./images/log-emotion.png" alt=""> <span>Amazing</span>
-                            </span>
+                            <div class="log-time">
+                                <span class="time">7:30 A.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
                         </td>
                         <td>
-                            <button><img src="./images/edit.svg" alt=""></button>
-                            <button><img src="./images/delete.svg" alt=""></button>
+                            <div class="log-time">
+                                <span class="time">4:30 P.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>                        
+                        <td>
+                            <button class="action-button"><img src="./images/edit.svg" alt=""></button>
+                            <button class="action-button action-delete"><img src="./images/delete.svg" alt=""></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saludes, Nathaniel</td>
+                        <td>XXXX-XXXXX</td>
+                        <td>January 23, 2020</td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">7:30 A.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">4:30 P.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>                        
+                        <td>
+                            <button class="action-button"><img src="./images/edit.svg" alt=""></button>
+                            <button class="action-button action-delete"><img src="./images/delete.svg" alt=""></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saludes, Nathaniel</td>
+                        <td>XXXX-XXXXX</td>
+                        <td>January 23, 2020</td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">7:30 A.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">4:30 P.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>                        
+                        <td>
+                            <button class="action-button"><img src="./images/edit.svg" alt=""></button>
+                            <button class="action-button action-delete"><img src="./images/delete.svg" alt=""></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saludes, Nathaniel</td>
+                        <td>XXXX-XXXXX</td>
+                        <td>January 23, 2020</td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">7:30 A.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="log-time">
+                                <span class="time">4:30 P.M.</span>
+                                <img src="./images/log-emotion.png" alt="">
+                                <span class="emotion-text">(Amazing)</span>
+                            </div>
+                        </td>                        
+                        <td>
+                            <button class="action-button"><img src="./images/edit.svg" alt=""></button>
+                            <button class="action-button action-delete"><img src="./images/delete.svg" alt=""></button>
                         </td>
                     </tr>
                 </tbody>
