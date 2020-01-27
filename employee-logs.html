@@ -111,15 +111,20 @@
         
         .inner-nav-link {
             margin-right: 47px;
+            margin-bottom: 20px;
             text-decoration: none;
             font-size: 20px;
             color: #DFDFDF;
             font-weight: bold;
         }
+
+        .inner-nav-link:hover {
+            color: #b8b8b8;
+        }
         
         /* Content ---------------------------------------------- */
         .content-container {
-            background-color: rgba(44, 0, 0, 0.363);
+            /* background-color: rgba(44, 0, 0, 0.363); */
             height: 100vh;
             
             width: 80%;
@@ -128,17 +133,50 @@
             margin-top: 100px;
             margin-left: 87px;
         }
+
+        .controls {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            padding: 10px;
+            background-color: rgb(240, 240, 240);
+            width: max-content;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .input-field input {
+            border: none;
+            background-color: transparent;
+            font-size: 13px;
+            font-family: 'Product Sans Regular', sans-serif;
+            /* font-weight: bold; */
+        }
         
         .router-view {
             background-color: white;
         }
 
         .filter-button {
-            
+            border: none;
+            border-radius: 5px;
+            font-family: "Product Sans Regular", sans-serif;
+            color: #C8C8C8;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            padding: 0px 10px;
+            margin-right: 10px;
+        }
+
+        .filter-button span {
+            margin: 0px 10px;
         }
 
         .employee-log-table {
-            background-color: #FB6464;
+            /* background-color: #FB6464; */
             width: 100%;
             text-align: left;
             border-collapse: collapse;
@@ -153,6 +191,10 @@
         td {
             padding: 10px 20px;
             vertical-align: middle;     
+        }
+
+        .emotion-log {
+            display: flex;
         }
 
     </style>
@@ -235,19 +277,37 @@
         </div>
         
         <div class="router-view">
-            <div class="input-field">
-                <input type="text" placeholder="Search Employee...">
+            <div class="controls">
+                <!-- Search field -->
+                <div class="input-field">
+                    <input type="text" placeholder="Search Employee...">
+                    <img src="./images/search.svg" alt="">
+                </div>
+    
+                <!-- filter button -->
+                <button class="filter-button">
+                    <img src="./images/filter-icon.svg" alt="">
+                    <span>Filter</span>
+                    <img src="./images/caret-down.svg" alt="">
+                </button>
+    
+                <!-- Date Range component -->
+                <div class="input-field">
+                    <img src="./images/calendar.svg" alt="">
+                    <input id="Toda" type="text" name="" id="" value="Today">
+                </div>
             </div>
-            <button class="filter-button">Filter</button>
 
             <table class="employee-log-table">
                 <thead class="table-head">
                     <th>Lastname</th>
                     <th>Firstname</th>
                     <th>Employee ID</th>
+                    <th>Date</th>
                     <th>Time-in</th>
+                    <th>Emotion-in</th>
                     <th>Time-out</th>
-                    <th>Time-out</th>
+                    <th>Emotion-out</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -256,9 +316,22 @@
                         <td>Nathaniel</td>
                         <td>XXXX-XXXXX</td>
                         <td>January 23, 2020</td>
-                        <td>7:30 A.M. <img src="./images/log-emotion.png" alt=""> <span>Amazing</span></td>
+                        <td>7:30 A.M.</td>
+                        <td>
+                            <span class="emotion-log">
+                                <img src="./images/log-emotion.png" alt=""> <span>Amazing</span>
+                            </span>
+                        </td>
                         <td>4:30 P.M.</td>
-                        <td></td>
+                        <td>
+                            <span class="emotion-log">
+                                <img src="./images/log-emotion.png" alt=""> <span>Amazing</span>
+                            </span>
+                        </td>
+                        <td>
+                            <button><img src="./images/edit.svg" alt=""></button>
+                            <button><img src="./images/delete.svg" alt=""></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
