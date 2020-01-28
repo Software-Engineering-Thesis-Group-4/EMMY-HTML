@@ -5,13 +5,13 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
-
+   <title>Employee List</title>
+   
    <style>
       * {
          font-family: 'Product Sans Regular', sans-serif;
       }
-
+      
       body {
          margin: 0px;
          padding: 0px;
@@ -22,7 +22,7 @@
          /* justify-content: center; */
          /* align-items: center; */
       }
-
+      
       .topbar {
          background-color: #FFFFFF;
          position: fixed;
@@ -32,7 +32,7 @@
          display: flex;
          z-index: 2;
       }
-
+      
       .side-nav {
          position: fixed;
          background-color: #FFFFFF;
@@ -41,12 +41,12 @@
          border-right: 1px solid #EEEEEE;
          z-index: 1;
       }
-
+      
       /* topbar ----------------------------------------------- */
       .logo {
          margin-left: 26px;
       }
-
+      
       .right {
          display: flex;
          /* background-color: red; */
@@ -56,7 +56,7 @@
          justify-content: flex-end;
          margin-right: 26px;
       }
-
+      
       .notification {
          display: flex;
          background: none;
@@ -67,11 +67,11 @@
          position: relative;
          margin-right: 20px;
       }
-
+      
       .notification-icon {
          height: 25px;
       }
-
+      
       .notification-badge {
          position: absolute;
          background-color: #FB6464;
@@ -85,7 +85,7 @@
          bottom: 3px;
          left: 9px;
       }      
-
+      
       /* Sidebar --------------------------------------------- */
       .navigation {
          /* background-color: red; */
@@ -94,22 +94,22 @@
          flex-direction: column;
          align-items: center;
       }
-
+      
       .navigation-link {
          margin-bottom: 24px;
       }
-
+      
       .active {
          background-color: #82EFCA;
          fill: #82EFCA;
       }
-
+      
       /* Inner nav ------------------------------------------- */
       .inner-nav {
          margin-top: 20px;
-               
+         
       }
-
+      
       .inner-nav-list-link {
          margin-right: 47px;
          text-decoration: none;
@@ -124,124 +124,185 @@
          color: #DFDFDF;
          font-weight: bold;
       }
-
+      
       /* Content ---------------------------------------------- */
       .content-container {
-         background-color: rgba(44, 0, 0, 0.363);
+         /* background-color: rgba(44, 0, 0, 0.363); */
          height: 100vh;
-
+         
          width: 80%;
          min-width: 1000px;
          align-self: center;
          margin-top: 100px;
-         margin-left: 87px;
-         
+         margin-left: 87px;         
       }
-
+      
       .router-view {
          background-color: white;
+         margin-top: 20px;
+      }
+
+      .controls {
          display: flex;
-         flex-direction: row;
+         margin-bottom: 10px;
       }
-
+      
       .search-field {
-         background-color: #F6F6F6;
-         border: none;
-         padding  : 15.5px 8px 9px 8px;
-         color: #C8C8C8; 
+         background-color: rgb(240, 240, 240);
+         width: max-content;
+         border-radius: 5px;
+         margin-right: 10px;
       }
-
-      .btn-filter-button  {
-         background-color: #F6F6F6;
+      
+      .search-field input {
+         padding: 12px;
          border: none;
-         padding: 11px 15px;
-         color: #C8C8C8; 
+         background-color: transparent;
+         font-size: 15px;
+         font-family: 'Product Sans Light', sans-serif;
+         width: 300px;
       }
-
-      .btn-add-employee {
+      
+      .search-field input:focus {
+         outline: none;
+      }
+      
+      .search-field input::placeholder {
+         color: rgb(180, 180, 180);
+      }
+      
+      .search-icon {
+         padding: 0px 10px 0px 0px;
+      }
+      
+      .filter-button {
+         border: none;
+         border-radius: 5px;
+         font-family: "Product Sans Regular", sans-serif;
+         color: #C8C8C8;
+         font-size: 12px;
+         display: flex;
+         align-items: center;
+         padding: 0px 10px;
+         margin-right: 10px;
+      }
+      
+      .filter-button span {
+         margin: 0px 10px;
+         font-size: 16px;
+      }
+      
+      .add-employee-button {
+         display: flex;
+         align-items: center;
          background-color: #82EFCA;
+         padding: 0px 15px;
          border: none;
-         padding: 15.5px 8px 9px 8px;
          color: white;
+         border-radius: 5px;
+         font-size: 13px;
+         font-weight: bold;
+         letter-spacing: 1px;
+         margin-right: 10px;
       }
 
-         .btn-export {
+      .add-employee-button img {
+         margin-right: 5px;
+      }
+      
+      .export-button {
          background-color: #77BBFE;
+         padding: 0px 15px;
          border: none;
-         padding: 15.5px 8px 9px 8px;
          color: white;
+         border-radius: 5px;
+         font-size: 13px;
+         font-weight: bold;
+         letter-spacing: 1px;
       }
 
+      .employee-count {
+         background-color: transparent;
+         flex-grow: 1;
+         display: flex;
+         align-items: flex-end;
+         justify-content: flex-end;
+         color: #b8b8b8;
+      }
+
+      .employee-count .count {
+         margin-left: 5px;
+         font-weight: bold;
+         color: #979797;
+      }
+      
       .employee-log-table {
-               background-color: #FFFFFF;
-               width: 100%;
-               text-align: left;
-               border-collapse: collapse;
+         background-color: #FFFFFF;
+         width: 100%;
+         text-align: left;
+         border-collapse: collapse;
       }
       
       thead {
          color: white;
          padding: 15px 50px;
       }
-
+      
       th {
          padding: 14px 20px;
-         background-color: #4B5B75;;
-         border: 1px solid white;
+         background-color: #4B5B75;
+         letter-spacing: 1px;
       }
-
+      
       thead {
          color: white;
          padding: 15px 50px;
-      }
-
-      tbody {
-         color: #B7B7B7;
       }
       
       td {
          padding: 14px 20px;
-         color: #B7B7B7;
+         font-family: "Product Sans Light", sans-serif;
+         color: #b6b6b6;
       }
-
+      
       tr:nth-child(even) {
          background-color: #f2f2f2;
       }
-
-    
-
+      
+      
+      
    </style>
-
+   
 </head>
 
 <body>
    <div class="topbar">
       <img src="./images/Logo.svg" alt="" class="logo">
-
+      
       <div class="right">
-
+         
          <a class="notification">
             <img src="./images/notification-icon.svg" alt="" class="notification-icon">
             <p class="notification-badge">1</p>
          </a>
-
+         
          <a class="user-button">
             <img src="./images/avatar.svg" alt="" class="user">
          </a>
       </div>
    </div>
-
+   
    <div class="side-nav">
       <div class="navigation">
          <a href="" class="navigation-link">
             <svg class="navigation-icon" xmlns="http://www.w3.org/2000/svg" width="27.539" height="27.539" viewBox="0 0 27.539 27.539">
                <g transform="translate(0.301 0.309)">
                   <path
-                     d="M33.42,12.909A2.411,2.411,0,0,0,35.1,12.23l2.375,1.187a2.42,2.42,0,1,0,4.585-.744l3.228-3.228a2.42,2.42,0,0,0,3.353-2.908l2.8-2.1a2.417,2.417,0,1,0-.969-1.29l-2.8,2.1A2.42,2.42,0,0,0,44.146,8.3l-3.228,3.228a2.415,2.415,0,0,0-2.722.442l-2.375-1.187a2.42,2.42,0,1,0-2.4,2.122Zm19.363-11.3a.807.807,0,1,1-.807.807A.808.808,0,0,1,52.784,1.614ZM46.329,6.455a.807.807,0,1,1-.807.807A.808.808,0,0,1,46.329,6.455Zm-6.454,6.454a.807.807,0,1,1-.807.807A.808.808,0,0,1,39.875,12.909ZM33.42,9.682a.807.807,0,1,1-.807.807A.808.808,0,0,1,33.42,9.682Zm0,0"
-                     transform="translate(-29.633 -0.309)" fill="#d0d7e5" />
+                  d="M33.42,12.909A2.411,2.411,0,0,0,35.1,12.23l2.375,1.187a2.42,2.42,0,1,0,4.585-.744l3.228-3.228a2.42,2.42,0,0,0,3.353-2.908l2.8-2.1a2.417,2.417,0,1,0-.969-1.29l-2.8,2.1A2.42,2.42,0,0,0,44.146,8.3l-3.228,3.228a2.415,2.415,0,0,0-2.722.442l-2.375-1.187a2.42,2.42,0,1,0-2.4,2.122Zm19.363-11.3a.807.807,0,1,1-.807.807A.808.808,0,0,1,52.784,1.614ZM46.329,6.455a.807.807,0,1,1-.807.807A.808.808,0,0,1,46.329,6.455Zm-6.454,6.454a.807.807,0,1,1-.807.807A.808.808,0,0,1,39.875,12.909ZM33.42,9.682a.807.807,0,1,1-.807.807A.808.808,0,0,1,33.42,9.682Zm0,0"
+                  transform="translate(-29.633 -0.309)" fill="#d0d7e5" />
                   <path
-                     d="M26.732,167.857h-.861V150.807a.807.807,0,0,0-.807-.807H21.838a.807.807,0,0,0-.807.807v17.051H19.417v-12.21a.807.807,0,0,0-.807-.807H15.383a.807.807,0,0,0-.807.807v12.21H12.963V162.1a.807.807,0,0,0-.807-.807H8.929a.807.807,0,0,0-.807.807v5.755H6.508v-8.983a.807.807,0,0,0-.807-.807H2.474a.807.807,0,0,0-.807.807v8.983H.807a.807.807,0,0,0,0,1.614H26.732a.807.807,0,0,0,0-1.614Zm-4.088-16.244h1.614v16.244H22.645Zm-6.454,4.841H17.8v11.4H16.19Zm-6.454,6.454h1.614v4.948H9.736Zm-6.454-3.227H4.895v8.176H3.281Zm0,0"
-                     transform="translate(-0.301 -142.241)" fill="#d0d7e5" />
+                  d="M26.732,167.857h-.861V150.807a.807.807,0,0,0-.807-.807H21.838a.807.807,0,0,0-.807.807v17.051H19.417v-12.21a.807.807,0,0,0-.807-.807H15.383a.807.807,0,0,0-.807.807v12.21H12.963V162.1a.807.807,0,0,0-.807-.807H8.929a.807.807,0,0,0-.807.807v5.755H6.508v-8.983a.807.807,0,0,0-.807-.807H2.474a.807.807,0,0,0-.807.807v8.983H.807a.807.807,0,0,0,0,1.614H26.732a.807.807,0,0,0,0-1.614Zm-4.088-16.244h1.614v16.244H22.645Zm-6.454,4.841H17.8v11.4H16.19Zm-6.454,6.454h1.614v4.948H9.736Zm-6.454-3.227H4.895v8.176H3.281Zm0,0"
+                  transform="translate(-0.301 -142.241)" fill="#d0d7e5" />
                </g>
             </svg>
          </a>
@@ -255,8 +316,8 @@
                   </g>
                   <g transform="translate(8.502 8.502)">
                      <path
-                        d="M170.2,167.548l-.772-6.013a1.694,1.694,0,0,0-1.69-1.53H166.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.93a1.69,1.69,0,0,0-1.69,1.508l-.774,6.036a.852.852,0,0,0,.843.957h.918l.711,8.672a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.709-8.657h.917a.848.848,0,0,0,.638-.289A.837.837,0,0,0,170.2,167.548Z"
-                        transform="translate(-160 -160.005)" fill="#d0d7e5" />
+                     d="M170.2,167.548l-.772-6.013a1.694,1.694,0,0,0-1.69-1.53H166.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.93a1.69,1.69,0,0,0-1.69,1.508l-.774,6.036a.852.852,0,0,0,.843.957h.918l.711,8.672a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.709-8.657h.917a.848.848,0,0,0,.638-.289A.837.837,0,0,0,170.2,167.548Z"
+                     transform="translate(-160 -160.005)" fill="#d0d7e5" />
                   </g>
                   <g transform="translate(19.077)">
                      <g transform="translate(0 0)">
@@ -266,44 +327,62 @@
                   <g transform="translate(1.7 0)">
                      <g transform="translate(0 0)">
                         <path d="M35.4,0a3.4,3.4,0,1,0,3.4,3.4A3.4,3.4,0,0,0,35.4,0Z"
-                           transform="translate(-31.999 -0.005)" fill="#d0d7e5" />
+                        transform="translate(-31.999 -0.005)" fill="#d0d7e5" />
                      </g>
                   </g>
                   <g transform="translate(18.92 8.502)">
                      <path
-                        d="M364.342,167.548l-.772-6.011a1.693,1.693,0,0,0-1.69-1.532h-.932a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.932a1.62,1.62,0,0,0-.3.056,3.311,3.311,0,0,1,.442,1.279l.77,5.992a2.544,2.544,0,0,1-.622,2.017,2.465,2.465,0,0,1-.843.6l.565,5.531a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.707-6.956h.917a.848.848,0,0,0,.638-.289A.838.838,0,0,0,364.342,167.548Z"
-                        transform="translate(-356.063 -160.005)" fill="#d0d7e5" />
+                     d="M364.342,167.548l-.772-6.011a1.693,1.693,0,0,0-1.69-1.532h-.932a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.856.856,0,0,0-.6-.248h-.932a1.62,1.62,0,0,0-.3.056,3.311,3.311,0,0,1,.442,1.279l.77,5.992a2.544,2.544,0,0,1-.622,2.017,2.465,2.465,0,0,1-.843.6l.565,5.531a1.694,1.694,0,0,0,1.692,1.53h1.862a1.7,1.7,0,0,0,1.694-1.546l.707-6.956h.917a.848.848,0,0,0,.638-.289A.838.838,0,0,0,364.342,167.548Z"
+                     transform="translate(-356.063 -160.005)" fill="#d0d7e5" />
                   </g>
                   <g transform="translate(0 8.502)">
                      <path
-                        d="M7.437,169.34a2.547,2.547,0,0,1-.616-2L7.6,161.3a3.144,3.144,0,0,1,.423-1.238,1.6,1.6,0,0,0-.286-.054H6.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.855.855,0,0,0-.6-.248H2.47a1.69,1.69,0,0,0-1.69,1.508L.006,167.55a.852.852,0,0,0,.843.957h.918l.711,6.972a1.694,1.694,0,0,0,1.692,1.53H6.032a1.7,1.7,0,0,0,1.694-1.546l.565-5.518A2.55,2.55,0,0,1,7.437,169.34Z"
-                        transform="translate(0.001 -160.005)" fill="#d0d7e5" />
+                     d="M7.437,169.34a2.547,2.547,0,0,1-.616-2L7.6,161.3a3.144,3.144,0,0,1,.423-1.238,1.6,1.6,0,0,0-.286-.054H6.8a.856.856,0,0,0-.6.248l-1.1,1.1-1.1-1.1a.855.855,0,0,0-.6-.248H2.47a1.69,1.69,0,0,0-1.69,1.508L.006,167.55a.852.852,0,0,0,.843.957h.918l.711,6.972a1.694,1.694,0,0,0,1.692,1.53H6.032a1.7,1.7,0,0,0,1.694-1.546l.565-5.518A2.55,2.55,0,0,1,7.437,169.34Z"
+                     transform="translate(0.001 -160.005)" fill="#d0d7e5" />
                   </g>
                </g>
             </svg>
          </a>
       </div>
    </div>   
-
+   
    <div class="content-container">
       <div class="inner-nav">
          <a href="" class="inner-nav-list-link">Employeee List</a>
          <a href="" class="inner-nav-logs-link">Employee Logs</a>
       </div>
+      
+      <div class="router-view">         
+         <div class="controls">
+            <!-- Search Employee Field -->
+            <div class="search-field">
+               <input type="text" placeholder="Search Employee...">
+               <img src="./images/search.svg" class="search-icon"> 
+            </div>
+            
+            <!-- Filter Button -->
+            <button class="filter-button">
+               <img src="./images/filter-icon.svg" alt="">
+               <span>Filter</span>
+               <img src="./images/caret-down.svg">
+            </button>
+            
+            <!-- Add Employee Button -->
+            <button class="add-employee-button">
+               <img src="./images/add-employee-icon.svg" alt="" srcset="">
+               <span>Add New Employee</span>
+            </button>
 
-      <div class="router-view">
-         <div class="input-field">
-            <input class="search-field" type="text" placeholder="Search Employee...">
-            <img src="./images/search.svg"> 
+            <!-- Export Button -->
+            <button class="export-button">Export</button>     
+            
+            <!-- Employee Count -->
+            <div class="employee-count">
+               <span>Total Employees:</span>
+               <span class="count">500</span>
+            </div>
          </div>
-         <div id="filter-button">
-            <button class="btn-filter-button">Filters</button>        
-            <button class="btn-add-employee">Add New Employee</button>    
-            <button class="btn-export">Export</button>          
-         </div>         
-      </div>
 
-      <div>
          <table class="employee-log-table">
             <thead class="table-head">
                <tr> 
@@ -446,7 +525,7 @@
                
             </tbody>
          </table>
-      </div>   
-</body>
-
-</html>
+      </div> 
+   </body>
+   
+   </html>
