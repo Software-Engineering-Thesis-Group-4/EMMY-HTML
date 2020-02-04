@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Application Configurations</title>
+    
+    <style>
+        @import url("./fonts/product-sans.css");
+
+        * {
+            font-family: 'Product Sans Regular', sans-serif;
+        }
+        
+        body {
+            margin: 0px;
+            padding: 0px;
+            /* height: 100vh; */
+            background-color: #26282B;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        
+        .topbar {
+            background-color: #393B40;
+            position: fixed;
+            width: 100%;
+            height: 81px;
+            display: flex;
+            z-index: 2;
+        }
+        
+        .side-nav {
+            position: fixed;
+            background-color: #393B40;
+            width: 87px;
+            height: 100vh;
+            z-index: 1;
+        }
+        
+        /* topbar ----------------------------------------------- */
+        .logo {
+            max-width: 50%;
+            height: 50%;
+            margin: 0px 0px 0px 26px;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+           }
+        
+        .right {
+            display: flex;
+            /* background-color: red; */
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 20px;
+        }
+        
+        
+        /* Sidebar --------------------------------------------- */
+        .navigation {
+            /* background-color: red; */
+            margin-top: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .navigation-link {
+            margin-bottom: 24px;
+        }
+        
+        .active {
+            background-color: #82EFCA;
+            fill: #82EFCA;
+        }
+        
+        /* Inner nav ------------------------------------------- */
+        .inner-nav {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #26282B;
+        }
+        
+        .inner-nav-link {
+            margin-right: 47px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: #52555A;
+            font-weight: bold;
+        }
+
+        .inner-active {
+            color: #82EFCA;
+        }
+
+        .inner-nav-link:hover {
+            color: #82EFCA;
+        }
+        
+        /* Content ---------------------------------------------- */
+        .content-container {            
+            height: 100vh;            
+            width: 80%;
+            min-width: 1000px;
+            align-self: center;
+            margin-top: 100px;
+            margin-left: 87px;
+        }
+
+        .controls {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            padding: 0px 10px;
+            background-color: rgb(240, 240, 240);
+            width: max-content;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .input-field input {
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            font-family: 'Product Sans Regular', sans-serif;
+            padding: 10px 5px;
+            width: 300px;
+        }
+
+        .input-field input::placeholder {
+            color: rgb(180, 180, 180);
+        }
+
+        .input-field input:focus {
+            outline: none;
+        }
+        
+        .router-view {
+            background-color: #202224;
+        }
+
+        .employee-log-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            #202224
+        }
+
+        th {
+            padding: 14px 20px;
+            background-color: #202224;
+            color: #57A48A;
+        }       
+
+        td {
+            padding: 10px 20px;
+            vertical-align: middle;    
+            color: #53565D; 
+            background-color: #202224;
+        }
+
+        thead tr th:first-child,
+        tbody tr td:first-child {
+            width: 10px;
+        }
+        .log-time {
+            display: flex;
+            align-items: center;
+        }
+
+        .time {
+            margin-right: 10px;
+        }
+
+        .emotion-text {
+            font-size: 12px;
+            color: rgb(153, 153, 153);
+            margin-left: 5px;
+        }
+
+        .action-button {
+            background-color: transparent;
+            border: none;
+        }
+
+        .action-button:hover {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <img src="./images/Logo-dark.png" alt="" class="logo">
+        
+        <div class="right">                      
+            <a class="user-button">
+                <img src="./images/avatar.svg" alt="" class="user">
+            </a>
+        </div>
+    </div>
+    
+    <div class="side-nav">
+        <div class="navigation">
+            <a href="" class="navigation-link">
+                <img src="./images/users-cog.svg" alt="">
+            </a>
+            <a href="" class="navigation-link">
+                <img src="./images/cog.svg" alt="">
+            </a>
+            <a href="" class="navigation-link">
+                <img src="./images/stream.svg" alt="">
+            </a>
+        </div>
+    </div>
+    
+    <div class="content-container">
+        <div class="inner-nav">
+            <a href="" class="inner-nav-link">Application Configurations</a>
+            <!-- <p class="right">Total Accounts: 8</p> -->
+        </div>
+           
+        </div>
+    </div>
+</body>
+</html>
